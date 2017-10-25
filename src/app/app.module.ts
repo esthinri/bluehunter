@@ -11,13 +11,17 @@ import { AppComponent } from './app.component';
 import { BooksComponent } from './books/books.component';
 import { UsersComponent } from './users/users.component';
 import { AboutThisComponent } from './about-this/about-this.component';
+import { UserAddComponent } from './user-add/user-add.component';
+import { BookAddComponent } from './book-add/book-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BooksComponent,
     UsersComponent,
-    AboutThisComponent
+    AboutThisComponent,
+    UserAddComponent,
+    BookAddComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +30,7 @@ import { AboutThisComponent } from './about-this/about-this.component';
     AppRoutingModule
   ],
   providers: [BooksComponent, UsersComponent],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

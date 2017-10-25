@@ -12,6 +12,7 @@ export class UsersComponent implements OnInit {
   private apiUrl = 'https://secret-island-80024.herokuapp.com/users/';
   users: any = {};
   inputName: string ='';
+  form: boolean = false;
   constructor(private http : Http ) {
     console.log('Lets go to find users data ... '); 
     this.getUsers();
@@ -36,6 +37,18 @@ export class UsersComponent implements OnInit {
       console.log(data);
       this.users = data;
     })
+  }
+
+  createNewUser(){
+
+  }
+
+  showForm(){
+    this.form = true;
+  }
+
+  hideForm(){
+    this.form = false;
   }
 
 

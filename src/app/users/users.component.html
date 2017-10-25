@@ -1,15 +1,43 @@
 <main role="main" class="container">
-
-  <h3>Lista de Clientes</h3>
-  
-  <div class="col-lg-6 form-group float-right">
+  <div>
+    <h3 class="text-center">Lista de Clientes</h3>
+  </div>
+  <div class="col-lg-5 form-group float-left">
     <div class="input-group">
-      <input type="text" class="form-control" id="inputName" [(ngModel)]="inputName" (change)="getUsers($inputName)" placeholder="Digite o nome aqui…" aria-label="Digite o nome aqui…">
+      <input type="text" class="form-control" id="inputName" [(ngModel)]="inputName" (change)="getUsers($inputName)" placeholder="Digite o nome aqui…"
+        aria-label="Digite o nome aqui…">
       <span class="input-group-btn">
         <button class="btn btn-secondary" (click)="getUsers()" type="button">Buscar!</button>
       </span>
     </div>
+
   </div>
+  <div class="col-lg-1 form-group float-right">
+    <button type="button" class="btn btn-success" (click)="showForm()" >Adicionar</button>
+  </div>
+
+  <div class="col-lg-6 form-group" *ngIf="form">
+      <form>
+          <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+     
+          <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="text" class="form-control" id="email">
+          </div>
+
+          <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password">
+            </div>
+     
+          <button type="submit" class="btn btn-success">Submit</button>
+     
+        </form>
+  </div>
+
   <table class="table table-striped">
     <thead>
       <tr>
@@ -17,7 +45,9 @@
         <th scope="col">Nome</th>
         <th scope="col">E-mail</th>
         <th scope="col">Senha</th>
-        <th scope="col">Data de Criação</th>
+        <th scope="col">Data/Hora de Criação</th>
+        <th scope="col">Editar</th>
+        <th scope="col">Remover</th>
       </tr>
     </thead>
     <tbody>
@@ -27,7 +57,13 @@
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.password }}</td>
-        <td>{{ user.createdDate }}</td>
+        <td>{{ user.createdDate | date: 'dd/MM/yyyy HH:mm' }}</td>
+        <td>
+          <img class="rounded mx-auto d-block" src="assets/ic_create_black_24px.svg">
+        </td>
+        <td>
+          <img class="rounded mx-auto d-block" src="assets/ic_delete_sweep_black_24px.svg">
+        </td>
       </tr>
 
     </tbody>
