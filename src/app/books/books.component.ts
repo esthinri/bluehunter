@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 
 export class BooksComponent implements OnInit {
 
+  private apiUrl = 'https://secret-island-80024.herokuapp.com/users';
   constructor() { }
 
   ngOnInit() {

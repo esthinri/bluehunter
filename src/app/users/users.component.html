@@ -1,34 +1,36 @@
 <main role="main" class="container">
-  <div class="jumbotron">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">First Name</th>
-          <th scope="col">Last Name</th>
-          <th scope="col">Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Larry</td>
-          <td>the Bird</td>
-          <td>@twitter</td>
-        </tr>
-      </tbody>
-    </table>
+
+  <h3>Lista de Clientes</h3>
+  
+  <div class="col-lg-6 form-group float-right">
+    <div class="input-group">
+      <input type="text" class="form-control" id="inputName" [(ngModel)]="inputName" (change)="getUsers($inputName)" placeholder="Digite o nome aqui…" aria-label="Digite o nome aqui…">
+      <span class="input-group-btn">
+        <button class="btn btn-secondary" (click)="getUsers()" type="button">Buscar!</button>
+      </span>
+    </div>
   </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome</th>
+        <th scope="col">E-mail</th>
+        <th scope="col">Senha</th>
+        <th scope="col">Data de Criação</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let user of users; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.password }}</td>
+        <td>{{ user.createdDate }}</td>
+      </tr>
+
+    </tbody>
+  </table>
+
 </main>
